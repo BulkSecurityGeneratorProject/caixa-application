@@ -1,0 +1,74 @@
+entity TipoEntrada {
+	codTEntrada Integer
+    descTEntrada String required
+}
+
+entity Entrada {
+	codEntrada Integer
+    valor Double required
+    data LocalDate 
+    ano Integer 
+}
+
+entity TipoSaida {
+	codTSaida Integer
+    descTSaida String required
+}
+
+entity Saida {
+	codSaida Integer
+    valor Double required
+    data LocalDate
+    ano Integer
+}
+
+entity Pessoa {
+	codPessoa Integer
+    nome String required
+    dataNasc LocalDate	required
+    sexo Sexo
+    cpf Integer required
+}
+
+enum Sexo {
+    Masculino, Feminino
+}
+
+entity Aluno {
+	codAluno Integer
+    dataEntrada LocalDate
+    dataSaida LocalDate
+}
+
+entity Funcionario {
+	codFuncionario Integer
+    carteiraTrabalho Integer
+    dataEntrada LocalDate
+    dataSaida LocalDate
+}
+
+relationship ManyToOne {
+	Entrada{tipoEntrada} to TipoEntrada
+}
+
+relationship ManyToOne {
+	Saida{tipoSaida} to TipoSaida
+}
+
+relationship ManyToOne {
+	Saida{pessoa} to Pessoa
+}
+
+relationship ManyToOne {
+	Entrada{pessoa} to Pessoa
+}
+
+relationship OneToOne {
+	Aluno{pessoa} to Pessoa
+}
+
+relationship OneToOne {
+	Funcionario{pessoa} to Pessoa
+}
+
+
