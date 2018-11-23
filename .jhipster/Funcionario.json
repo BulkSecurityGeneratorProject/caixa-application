@@ -1,0 +1,40 @@
+{
+    "name": "Funcionario",
+    "fields": [
+        {
+            "fieldName": "codFuncionario",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "carteiraTrabalho",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "dataEntrada",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataSaida",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "pessoa",
+            "otherEntityName": "pessoa",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "funcionario"
+        }
+    ],
+    "changelogDate": "20181123142347",
+    "entityTableName": "funcionario",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

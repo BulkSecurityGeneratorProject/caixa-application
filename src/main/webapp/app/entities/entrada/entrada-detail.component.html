@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="entrada">
+            <h2><span>Entrada</span> {{entrada.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cod Entrada</span></dt>
+                <dd>
+                    <span>{{entrada.codEntrada}}</span>
+                </dd>
+                <dt><span>Valor</span></dt>
+                <dd>
+                    <span>{{entrada.valor}}</span>
+                </dd>
+                <dt><span>Data</span></dt>
+                <dd>
+                    <span>{{entrada.data}}</span>
+                </dd>
+                <dt><span>Ano</span></dt>
+                <dd>
+                    <span>{{entrada.ano}}</span>
+                </dd>
+                <dt><span>Tipo Entrada</span></dt>
+                <dd>
+                    <div *ngIf="entrada.tipoEntrada">
+                        <a [routerLink]="['/tipo-entrada', entrada.tipoEntrada?.id, 'view']">{{entrada.tipoEntrada?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="entrada.pessoa">
+                        <a [routerLink]="['/pessoa', entrada.pessoa?.id, 'view']">{{entrada.pessoa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/entrada', entrada.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

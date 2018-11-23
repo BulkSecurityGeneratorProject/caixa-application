@@ -1,0 +1,26 @@
+{
+    "name": "TipoSaida",
+    "fields": [
+        {
+            "fieldName": "codTSaida",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descTSaida",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181123142343",
+    "entityTableName": "tipo_saida",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-entrada-heading">Create or edit a Entrada</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!entrada.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="entrada.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codEntrada">Cod Entrada</label>
+                    <input type="number" class="form-control" name="codEntrada" id="field_codEntrada"
+                        [(ngModel)]="entrada.codEntrada" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_valor">Valor</label>
+                    <input type="number" class="form-control" name="valor" id="field_valor"
+                        [(ngModel)]="entrada.valor" required/>
+                    <div [hidden]="!(editForm.controls.valor?.dirty && editForm.controls.valor?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.valor?.errors?.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.valor?.errors?.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_data">Data</label>
+                    <div class="input-group">
+                        <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" [(ngModel)]="entrada.data"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ano">Ano</label>
+                    <input type="number" class="form-control" name="ano" id="field_ano"
+                        [(ngModel)]="entrada.ano" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tipoEntrada">Tipo Entrada</label>
+                    <select class="form-control" id="field_tipoEntrada" name="tipoEntrada" [(ngModel)]="entrada.tipoEntrada" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoEntradaOption.id === entrada.tipoEntrada?.id ? entrada.tipoEntrada : tipoEntradaOption" *ngFor="let tipoEntradaOption of tipoentradas; trackBy: trackTipoEntradaById">{{tipoEntradaOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="entrada.pessoa" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === entrada.pessoa?.id ? entrada.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

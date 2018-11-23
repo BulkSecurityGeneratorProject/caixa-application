@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="saida">
+            <h2><span>Saida</span> {{saida.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Cod Saida</span></dt>
+                <dd>
+                    <span>{{saida.codSaida}}</span>
+                </dd>
+                <dt><span>Valor</span></dt>
+                <dd>
+                    <span>{{saida.valor}}</span>
+                </dd>
+                <dt><span>Data</span></dt>
+                <dd>
+                    <span>{{saida.data}}</span>
+                </dd>
+                <dt><span>Ano</span></dt>
+                <dd>
+                    <span>{{saida.ano}}</span>
+                </dd>
+                <dt><span>Tipo Saida</span></dt>
+                <dd>
+                    <div *ngIf="saida.tipoSaida">
+                        <a [routerLink]="['/tipo-saida', saida.tipoSaida?.id, 'view']">{{saida.tipoSaida?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Pessoa</span></dt>
+                <dd>
+                    <div *ngIf="saida.pessoa">
+                        <a [routerLink]="['/pessoa', saida.pessoa?.id, 'view']">{{saida.pessoa?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/saida', saida.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

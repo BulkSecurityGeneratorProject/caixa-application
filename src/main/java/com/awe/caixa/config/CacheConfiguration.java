@@ -38,6 +38,13 @@ public class CacheConfiguration {
             cm.createCache(com.awe.caixa.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.awe.caixa.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.awe.caixa.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.TipoEntrada.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.Entrada.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.TipoSaida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.Saida.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.Pessoa.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.Aluno.class.getName(), jcacheConfiguration);
+            cm.createCache(com.awe.caixa.domain.Funcionario.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -5,6 +5,17 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142341_added_entity_TipoEntrada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142342_added_entity_Entrada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142343_added_entity_TipoSaida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142344_added_entity_Saida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142345_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142346_added_entity_Aluno.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142347_added_entity_Funcionario.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20181123142342_added_entity_constraints_Entrada.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142344_added_entity_constraints_Saida.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142346_added_entity_constraints_Aluno.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20181123142347_added_entity_constraints_Funcionario.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

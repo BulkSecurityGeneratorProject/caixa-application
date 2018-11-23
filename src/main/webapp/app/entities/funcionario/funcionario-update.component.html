@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-funcionario-heading">Create or edit a Funcionario</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!funcionario.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="funcionario.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_codFuncionario">Cod Funcionario</label>
+                    <input type="number" class="form-control" name="codFuncionario" id="field_codFuncionario"
+                        [(ngModel)]="funcionario.codFuncionario" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_carteiraTrabalho">Carteira Trabalho</label>
+                    <input type="number" class="form-control" name="carteiraTrabalho" id="field_carteiraTrabalho"
+                        [(ngModel)]="funcionario.carteiraTrabalho" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataEntrada">Data Entrada</label>
+                    <div class="input-group">
+                        <input id="field_dataEntrada" type="text" class="form-control" name="dataEntrada" ngbDatepicker  #dataEntradaDp="ngbDatepicker" [(ngModel)]="funcionario.dataEntrada"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataEntradaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dataSaida">Data Saida</label>
+                    <div class="input-group">
+                        <input id="field_dataSaida" type="text" class="form-control" name="dataSaida" ngbDatepicker  #dataSaidaDp="ngbDatepicker" [(ngModel)]="funcionario.dataSaida"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dataSaidaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_pessoa">Pessoa</label>
+                    <select class="form-control" id="field_pessoa" name="pessoa" [(ngModel)]="funcionario.pessoa">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pessoaOption.id === funcionario.pessoa?.id ? funcionario.pessoa : pessoaOption" *ngFor="let pessoaOption of pessoas; trackBy: trackPessoaById">{{pessoaOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

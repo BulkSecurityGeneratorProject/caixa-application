@@ -1,0 +1,26 @@
+{
+    "name": "TipoEntrada",
+    "fields": [
+        {
+            "fieldName": "codTEntrada",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "descTEntrada",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181123142341",
+    "entityTableName": "tipo_entrada",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
